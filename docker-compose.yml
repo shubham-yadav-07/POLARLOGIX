@@ -1,0 +1,39 @@
+# Local development / demo stack: API + PostgreSQL.
+# Run:  docker compose up --build
+# Then open http://localhost:8000  (demo login: control / polar2026)
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: polarlogix
+      POSTGRES_PASSWORD: polarlogix_dev_password
+      POSTGRES_DB: polarlogix
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U polarlogix"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    ports:
+      - "5432:5432"
+
+  api:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://polarlogix:polarlogix_dev_password@db:5432/polarlogix
+      SECRET_KEY: dev-only-change-me-please-32-bytes-min
+      SEED_DEMO_DATA: "true"
+      DEMO_PASSWORD: polar2026
+      DEMO_MODE: "false"
+      ALLOW_LINK_SIM: "true"
+    ports:
+      - "8000:8000"
+
+volumes:
+  pg_data:

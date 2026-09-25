@@ -1,0 +1,31 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+env/
+*.egg-info/
+
+# local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# env files
+.env
+.env.local
+
+# node (frontend tooling, if any is added later)
+node_modules/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# logs
+*.log
+
+# build artifacts
+dist/
+build/
