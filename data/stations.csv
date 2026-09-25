@@ -1,0 +1,10 @@
+code,name,kind,lat,lon,approx,note
+Bharati,Bharati Station,station,-69.4083,76.1867,0,"Larsemann Hills, Prydz Bay"
+Maitri,Maitri Station,station,-70.7667,11.7333,0,Schirmacher Oasis
+Sandhi,Sandhi summer base,summer_base,-70.6,69.6,1,Planned; exact location not confirmed
+Himadri,Himadri Station,arctic_station,78.92,11.93,1,"Ny-Alesund, Svalbard"
+Himansh,Himansh Station,himalayan_station,32.33,77.6,1,"Spiti, Himachal Pradesh"
+Cape Town hub,Cape Town hub,hub,-33.92,18.42,0,Logistics hub for ISEA
+NCPOR Goa,NCPOR Goa (HQ),hq,15.39,73.83,1,"Headquarters, Vasco da Gama"
+Vessel,Ice-class vessel,vessel,-63.2,47.0,1,Demo position
+Traverse,Traverse party,field,-71.0,74.8,1,Demo position

@@ -1,0 +1,5 @@
+id,name,org,base,destination,status,risk_rating,progress,start_date,end_date,objective,permit_valid_until,route_id
+EXP-46-ISEA,46th Indian Scientific Expedition to Antarctica,"Ice-core and atmospheric science / NCPOR, MoES",Bharati,Sandhi summer-base traverse,ACTIVE,MEDIUM,62,2026-11-01,2027-03-31,Deep ice-core drilling and an automated weather buoy deployment.,2027-04-15,R-TRAV-1
+EXP-MAITRI,Maitri resupply and winter changeover,"Logistics / NCPOR, MoES",Maitri,"Cape Town to Maitri, air and ship legs",ACTIVE,HIGH,44,2026-11-10,2027-02-20,"Move fuel, food and spares through the Cape Town hub inside the weather window.",2027-03-01,R-VESSEL-A
+EXP-HIMADRI,Himadri Arctic summer campaign,"Arctic research / NCPOR, MoES",Himadri,Kongsfjorden field sites,PLANNED,LOW,15,2027-06-01,2027-08-31,Fjord sampling and atmospheric sensor servicing.,,
+EXP-HIMANSH,Himansh glacier monitoring,"Cryosphere / NCPOR, MoES",Himansh,Glacier monitoring transect,ACTIVE,MEDIUM,78,2026-08-01,2026-10-31,Seasonal mass-balance readings and stake replacement.,2026-12-10,

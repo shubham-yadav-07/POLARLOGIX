@@ -1,0 +1,42 @@
+id,consignment,name,weight_kg,category,hazard,route,current_node,status
+CRG-0231-1,CRG-0231,Drill spares,180,,0,air,Cape Town hub,in_transit
+CRG-0231-2,CRG-0231,Li-ion battery pack,64,battery,1,ship,Cape Town hub,in_transit
+CRG-0231-3,CRG-0231,Jet A-1 drums,208,fuel,1,ship,Cape Town hub,in_transit
+CRG-0231-4,CRG-0231,Soil test kit,12,soil,0,air,Cape Town hub,in_transit
+CRG-0232-1,CRG-0232,Tents and stoves,120,,0,ship,NCPOR Goa,packed
+CRG-0232-2,CRG-0232,Lab consumables,70,,0,air,Bharati,delivered
+CRG-0232-3,CRG-0232,Comms terminal,18,,0,air,Bharati,delivered
+CRG-0232-4,CRG-0232,Jet A-1 drums,208,fuel,1,ship,Bharati,delivered
+CRG-0233-1,CRG-0233,Propane cylinders,110,gas,1,ship,Ice-class vessel,in_transit
+CRG-0233-2,CRG-0233,Lab chemicals (flammable),35,chemical,1,ship,Bharati,delivered
+CRG-0234-1,CRG-0234,Radar antenna,40,,0,air,NCPOR Goa,packed
+CRG-0234-2,CRG-0234,Fresh produce crate,60,,0,air,Bharati,delivered
+CRG-0234-3,CRG-0234,Winter clothing bales,150,,0,air,Novo airfield (Maitri),in_transit
+CRG-0234-4,CRG-0234,Ice-core tubes,95,,0,ship,Bharati,delivered
+CRG-0235-1,CRG-0235,Li-ion battery pack,64,battery,1,ship,Bharati,delivered
+CRG-0235-2,CRG-0235,Fresh produce crate,60,,0,air,Cape Town hub,in_transit
+CRG-0235-3,CRG-0235,Jet A-1 drums,208,fuel,1,ship,Cape Town hub,in_transit
+CRG-0235-4,CRG-0235,Winter clothing bales,150,,0,ship,Bharati,delivered
+CRG-0236-1,CRG-0236,Lab chemicals (flammable),35,chemical,1,ship,Bharati,delivered
+CRG-0236-2,CRG-0236,Solar panels,85,,0,ship,Ice-class vessel,in_transit
+CRG-0236-3,CRG-0236,Lab consumables,70,,0,ship,Ice-class vessel,in_transit
+CRG-0236-4,CRG-0236,Propane cylinders,110,gas,1,ship,Bharati,delivered
+CRG-0237-1,CRG-0237,Dry rations pallet,300,,0,air,NCPOR Goa,packed
+CRG-0237-2,CRG-0237,Lab consumables,70,,0,ship,Bharati,delivered
+CRG-0237-3,CRG-0237,Winter clothing bales,150,,0,air,Cape Town hub,in_transit
+CRG-0238-1,CRG-0238,Winter clothing bales,150,,0,ship,Ice-class vessel,in_transit
+CRG-0238-2,CRG-0238,Soil test kit,12,soil,0,air,Novo airfield (Maitri),in_transit
+CRG-0239-1,CRG-0239,Radar antenna,40,,0,air,Bharati,delivered
+CRG-0239-2,CRG-0239,Drill spares,180,,0,ship,Cape Town hub,in_transit
+CRG-0239-3,CRG-0239,Soil test kit,12,soil,0,air,Bharati,delivered
+CRG-0240-1,CRG-0240,Spare snowcat tracks,220,,0,ship,Cape Town hub,in_transit
+CRG-0240-2,CRG-0240,Comms terminal,18,,0,ship,NCPOR Goa,packed
+CRG-0241-1,CRG-0241,Lab chemicals (flammable),35,chemical,1,ship,Bharati,delivered
+CRG-0241-2,CRG-0241,Li-ion battery pack,64,battery,1,ship,Bharati,delivered
+CRG-0241-3,CRG-0241,Soil test kit,12,soil,0,air,Bharati,delivered
+CRG-0241-4,CRG-0241,Lab chemicals (flammable),35,chemical,1,ship,Bharati,delivered
+CRG-0242-1,CRG-0242,Radar antenna,40,,0,air,Air leg to Bharati,in_transit
+CRG-0242-2,CRG-0242,Drill spares,180,,0,ship,Cape Town hub,in_transit
+CRG-0242-3,CRG-0242,Solar panels,85,,0,air,Bharati,delivered
+CRG-0243-1,CRG-0243,Li-ion battery pack,64,battery,1,ship,Cape Town hub,in_transit
+CRG-0243-2,CRG-0243,Jet A-1 drums,208,fuel,1,ship,Bharati,delivered

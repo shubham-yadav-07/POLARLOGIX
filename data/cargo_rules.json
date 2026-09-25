@@ -1,0 +1,47 @@
+{
+  "air_limit_kg": {
+    "min": 1500,
+    "max": 1800,
+    "note": "Small flights from Cape Town carry about 1,500 to 1,800 kg including people, personal and scientific cargo and emergency kits.",
+    "source": "NCPOR ISEA expedition advertisement",
+    "verified": true
+  },
+  "hazard_categories": [
+    "battery",
+    "fuel",
+    "gas",
+    "chemical"
+  ],
+  "hazard_rule": {
+    "text": "Hazardous cargo (gases, chemicals, fuel, lithium-ion batteries) cannot go by air; arrange at Cape Town or ship it.",
+    "source": "NCPOR ISEA expedition advertisement",
+    "verified": true
+  },
+  "arrange_at_cape_town": [
+    "fuel"
+  ],
+  "declaration_required": {
+    "soil": "Cleanliness / biosecurity declaration required before dispatch",
+    "source": "Assumption for the prototype (Antarctic Treaty biosecurity practice)",
+    "verified": false
+  },
+  "air_nodes": [
+    "Novo airfield (Maitri)",
+    "Air leg to Bharati"
+  ],
+  "routes": {
+    "air": [
+      "NCPOR Goa",
+      "Cape Town hub",
+      "Novo airfield (Maitri)",
+      "Air leg to Bharati",
+      "Bharati"
+    ],
+    "ship": [
+      "NCPOR Goa",
+      "Cape Town hub",
+      "Ice-class vessel",
+      "Bharati"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+id,name,type,station,status,level_pct,lat,lon,mission_id
+AST-SNOW-01,"Snowcat, tracked",Snowcat,Traverse,In use,64,-71.02,74.78,EXP-46-ISEA
+AST-SNOW-02,"Snowcat, tracked",Snowcat,Traverse,Available,88,-70.9,74.9,
+AST-SNOW-03,"Snowcat, tracked",Snowcat,Traverse,Available,76,-70.9876,74.8337,EXP-46-ISEA
+AST-SNOW-04,"Snowcat, tracked",Snowcat,Traverse,In use,48,-70.9855,74.754,EXP-46-ISEA
+AST-SNOW-05,"Snowcat, tracked",Snowcat,Maitri,Available,82,-70.7672,11.7454,
+AST-SNOW-06,"Snowcat, tracked",Snowcat,Maitri,In use,53,-70.7779,11.7133,
+AST-SNOW-07,"Snowcat, tracked",Snowcat,Traverse,Available,56,-70.9807,74.785,EXP-46-ISEA
+AST-SNOW-08,"Snowcat, tracked",Snowcat,Traverse,Available,95,-70.9947,74.7654,EXP-46-ISEA
+AST-SNOW-09,"Snowcat, tracked",Snowcat,Cape Town hub,Available,71,-33.9282,18.4152,
+AST-SNOW-10,"Snowcat, tracked",Snowcat,Traverse,In use,63,-71.0137,74.8374,EXP-46-ISEA
+AST-SNOW-11,"Snowcat, tracked",Snowcat,Cape Town hub,In use,81,-33.9276,18.3937,
+AST-SNOW-12,"Snowcat, tracked",Snowcat,Bharati,Available,84,-69.4081,76.1655,EXP-46-ISEA
+AST-SNOW-13,"Snowcat, tracked",Snowcat,Bharati,Available,48,-69.3934,76.2001,EXP-46-ISEA
+AST-SNOW-14,"Snowcat, tracked",Snowcat,Traverse,Maintenance,56,-71.0157,74.8444,EXP-46-ISEA
+AST-UAV-01,Fixed-wing survey UAV,UAV,Bharati,Available,72,-69.4144,76.1725,EXP-46-ISEA
+AST-UAV-02,Fixed-wing survey UAV,UAV,Maitri,In use,71,-70.7842,11.7582,
+AST-UAV-03,Fixed-wing survey UAV,UAV,Traverse,Available,39,-70.9909,74.7884,EXP-46-ISEA
+AST-UAV-04,Fixed-wing survey UAV,UAV,Traverse,Available,71,-70.95,74.85,EXP-46-ISEA
+AST-UAV-05,Fixed-wing survey UAV,UAV,Maitri,In use,100,-70.753,11.7131,
+AST-UAV-06,Fixed-wing survey UAV,UAV,Bharati,Available,40,-69.4127,76.1404,EXP-46-ISEA
+AST-UAV-07,Fixed-wing survey UAV,UAV,Maitri,Available,42,-70.7796,11.7135,
+AST-UAV-08,Fixed-wing survey UAV,UAV,Bharati,Available,59,-69.4045,76.1404,EXP-46-ISEA
+AST-UAV-09,Fixed-wing survey UAV,UAV,Bharati,Available,52,-69.3945,76.2034,EXP-46-ISEA
+AST-UAV-10,Fixed-wing survey UAV,UAV,Bharati,Available,57,-69.4053,76.1738,EXP-46-ISEA
+AST-UAV-11,Fixed-wing survey UAV,UAV,Bharati,Maintenance,56,-69.3956,76.1606,EXP-46-ISEA
+AST-UAV-12,Fixed-wing survey UAV,UAV,Maitri,In use,77,-70.7549,11.7355,
+AST-SLED-01,Traverse sledge,Sledge,Traverse,In use,0,-70.9849,74.8231,EXP-46-ISEA
+AST-SLED-02,Traverse sledge,Sledge,Cape Town hub,Available,0,-33.91,18.4562,
+AST-SLED-03,Traverse sledge,Sledge,Bharati,In use,0,-69.3949,76.2118,EXP-46-ISEA
+AST-SLED-04,Traverse sledge,Sledge,Bharati,Available,0,-69.4083,76.2294,EXP-46-ISEA
+AST-SLED-05,Traverse sledge,Sledge,Maitri,Available,0,-70.7846,11.726,
+AST-SLED-06,Traverse sledge,Sledge,Bharati,Maintenance,0,-69.3919,76.1926,EXP-46-ISEA
+AST-SLED-07,Traverse sledge,Sledge,Traverse,In use,0,-70.9974,74.7591,EXP-46-ISEA
+AST-SLED-08,Traverse sledge,Sledge,Bharati,In use,0,-69.4114,76.1937,EXP-46-ISEA
+AST-SLED-09,Traverse sledge,Sledge,Maitri,In use,0,-70.764,11.6973,
+AST-SLED-10,Traverse sledge,Sledge,Cape Town hub,In use,0,-33.9205,18.4207,
+AST-SLED-11,Traverse sledge,Sledge,Cape Town hub,Available,0,-33.9171,18.4197,
+AST-SLED-12,Traverse sledge,Sledge,Cape Town hub,Available,0,-33.9115,18.3883,
+AST-SLED-13,Traverse sledge,Sledge,Bharati,In use,0,-69.4124,76.1567,EXP-46-ISEA
+AST-SLED-14,Traverse sledge,Sledge,Traverse,Available,0,-71.0156,74.8463,EXP-46-ISEA
+AST-SLED-15,Traverse sledge,Sledge,Bharati,Available,0,-69.3994,76.194,EXP-46-ISEA
+AST-SLED-16,Traverse sledge,Sledge,Traverse,Maintenance,0,-70.9933,74.7834,EXP-46-ISEA
+AST-SLED-17,Traverse sledge,Sledge,Cape Town hub,In use,0,-33.9255,18.4552,
+AST-SLED-18,Traverse sledge,Sledge,Bharati,Available,0,-69.4229,76.2217,EXP-46-ISEA
+AST-SLED-19,Traverse sledge,Sledge,Traverse,In use,0,-71.0005,74.7702,EXP-46-ISEA
+AST-SLED-20,Traverse sledge,Sledge,Bharati,Available,0,-69.4096,76.1398,EXP-46-ISEA
+AST-SLED-21,Traverse sledge,Sledge,Bharati,Available,0,-69.3952,76.2131,EXP-46-ISEA
+AST-SLED-22,Traverse sledge,Sledge,Traverse,Maintenance,0,-70.9874,74.7677,EXP-46-ISEA
+AST-SLED-23,Traverse sledge,Sledge,Bharati,In use,0,-69.3927,76.1528,EXP-46-ISEA
+AST-SLED-24,Traverse sledge,Sledge,Maitri,Available,0,-70.7836,11.7134,
+AST-SLED-25,Traverse sledge,Sledge,Traverse,In use,0,-70.9853,74.7608,EXP-46-ISEA
+AST-SLED-26,Traverse sledge,Sledge,Cape Town hub,In use,0,-33.9144,18.4504,
+AST-SLED-27,Traverse sledge,Sledge,Maitri,In use,0,-70.7659,11.7783,
+AST-SLED-28,Traverse sledge,Sledge,Cape Town hub,In use,0,-33.9241,18.4578,
+AST-SLED-29,Traverse sledge,Sledge,Bharati,Available,0,-69.3926,76.1499,EXP-46-ISEA
+AST-SLED-30,Traverse sledge,Sledge,Bharati,Available,0,-69.3931,76.2357,EXP-46-ISEA
+AST-GEN-01,Generator 150 kVA,Generator,Maitri,Running,87,-70.7719,11.6857,
+AST-GEN-02,Generator 150 kVA,Generator,Maitri,Available,74,-70.7817,11.7068,
+AST-GEN-03,Generator 150 kVA,Generator,Maitri,Running,44,-70.7802,11.7451,
+AST-GEN-04,Generator 150 kVA,Generator,Bharati,Running,91,-69.4029,76.1787,EXP-46-ISEA
+AST-GEN-05,Generator 150 kVA,Generator,Bharati,Running,45,-69.3887,76.233,EXP-46-ISEA
+AST-GEN-06,Generator 150 kVA,Generator,Bharati,Available,47,-69.4248,76.2274,EXP-46-ISEA
+AST-GEN-07,Generator 150 kVA,Generator,Bharati,Running,85,-69.4037,76.1562,EXP-46-ISEA
+AST-GEN-08,Generator 150 kVA,Generator,Maitri,Available,62,-70.7856,11.6964,
+AST-GEN-09,Generator 150 kVA,Generator,Bharati,Available,72,-69.4,76.1663,EXP-46-ISEA
+AST-GEN-10,Generator 150 kVA,Generator,Bharati,Running,68,-69.4202,76.2015,EXP-46-ISEA
+AST-CRYO-01,Cryo container,Cold storage,Maitri,Available,82,-70.7624,11.7214,
+AST-CRYO-02,Cryo container,Cold storage,Cape Town hub,Maintenance,58,-33.9221,18.4358,
+AST-CRYO-03,Cryo container,Cold storage,Cape Town hub,Available,47,-33.9178,18.4115,
+AST-CRYO-04,Cryo container,Cold storage,Traverse,In use,88,-71.008,74.7634,EXP-46-ISEA
+AST-CRYO-05,Cryo container,Cold storage,Bharati,Available,88,-69.4147,76.1507,EXP-46-ISEA
+AST-CRYO-06,Cryo container,Cold storage,Maitri,In use,61,-70.7828,11.7612,
+AST-CRYO-07,Cryo container,Cold storage,Traverse,Available,61,-71.0124,74.7769,EXP-46-ISEA
+AST-CRYO-08,Cryo container,Cold storage,Bharati,Available,39,-69.4094,76.1877,EXP-46-ISEA
+AST-BOAT-01,Rigid inflatable boat,Boat,Bharati,Maintenance,68,-69.4264,76.2018,EXP-46-ISEA
+AST-BOAT-02,Rigid inflatable boat,Boat,Maitri,Maintenance,91,-70.7548,11.6861,
+AST-BOAT-03,Rigid inflatable boat,Boat,Maitri,Available,77,-70.7587,11.7333,
+AST-BOAT-04,Rigid inflatable boat,Boat,Bharati,In use,93,-69.3953,76.1836,EXP-46-ISEA
+AST-BOAT-05,Rigid inflatable boat,Boat,Bharati,Available,60,-69.4154,76.1491,EXP-46-ISEA
+AST-BOAT-06,Rigid inflatable boat,Boat,Bharati,In use,74,-69.3888,76.1963,EXP-46-ISEA
+AST-DRILL-01,Ice-core drill rig,Drill rig,Bharati,Available,51,-69.4206,76.1629,EXP-46-ISEA
+AST-DRILL-02,Ice-core drill rig,Drill rig,Bharati,Available,81,-69.419,76.2139,EXP-46-ISEA
+AST-DRILL-03,Ice-core drill rig,Drill rig,Bharati,Available,56,-69.3988,76.2304,EXP-46-ISEA
+AST-DRILL-04,Ice-core drill rig,Drill rig,Maitri,Available,58,-70.7602,11.7782,
+AST-SAT-01,Satcom terminal,Satcom terminal,Cape Town hub,Available,52,-33.9238,18.4499,
+AST-SAT-02,Satcom terminal,Satcom terminal,Traverse,In use,66,-70.9947,74.838,EXP-46-ISEA
+AST-SAT-03,Satcom terminal,Satcom terminal,Traverse,Available,76,-71.0106,74.7598,EXP-46-ISEA
+AST-SAT-04,Satcom terminal,Satcom terminal,Bharati,Available,75,-69.3988,76.1466,EXP-46-ISEA
+AST-SAT-05,Satcom terminal,Satcom terminal,Traverse,Maintenance,94,-70.9984,74.818,EXP-46-ISEA
+AST-SAT-06,Satcom terminal,Satcom terminal,Traverse,Maintenance,58,-71.012,74.7513,EXP-46-ISEA
+AST-SAT-07,Satcom terminal,Satcom terminal,Traverse,Available,66,-70.9956,74.7826,EXP-46-ISEA
+AST-SAT-08,Satcom terminal,Satcom terminal,Traverse,In use,91,-70.9941,74.8129,EXP-46-ISEA
+AST-SAT-09,Satcom terminal,Satcom terminal,Cape Town hub,In use,71,-33.9274,18.3802,
+AST-SAT-10,Satcom terminal,Satcom terminal,Bharati,Available,60,-69.3925,76.2232,EXP-46-ISEA
+AST-SAT-11,Satcom terminal,Satcom terminal,Bharati,Available,68,-69.4093,76.2262,EXP-46-ISEA
+AST-SAT-12,Satcom terminal,Satcom terminal,Maitri,Available,48,-70.7629,11.7552,
+AST-PLB-01,Personal locator beacon,Beacon,Bharati,Available,52,-69.3971,76.1683,EXP-46-ISEA
+AST-PLB-02,Personal locator beacon,Beacon,Bharati,In use,81,-69.4025,76.1461,EXP-46-ISEA
+AST-PLB-03,Personal locator beacon,Beacon,Traverse,In use,41,-70.9886,74.8493,EXP-46-ISEA
+AST-PLB-04,Personal locator beacon,Beacon,Maitri,In use,92,-70.7865,11.7794,
+AST-PLB-05,Personal locator beacon,Beacon,Bharati,Available,40,-69.402,76.1629,EXP-46-ISEA
+AST-PLB-06,Personal locator beacon,Beacon,Traverse,In use,74,-70.9997,74.8282,EXP-46-ISEA
+AST-PLB-07,Personal locator beacon,Beacon,Bharati,In use,95,-69.3937,76.2256,EXP-46-ISEA
+AST-PLB-08,Personal locator beacon,Beacon,Cape Town hub,Available,85,-33.9207,18.4335,
+AST-PLB-09,Personal locator beacon,Beacon,Bharati,In use,100,-69.3941,76.176,EXP-46-ISEA
+AST-PLB-10,Personal locator beacon,Beacon,Bharati,Available,94,-69.4164,76.2184,EXP-46-ISEA
+AST-PLB-11,Personal locator beacon,Beacon,Traverse,Available,45,-70.9974,74.8359,EXP-46-ISEA
+AST-PLB-12,Personal locator beacon,Beacon,Bharati,Available,89,-69.4231,76.1469,EXP-46-ISEA
+AST-PLB-13,Personal locator beacon,Beacon,Bharati,Available,59,-69.4221,76.1757,EXP-46-ISEA
+AST-PLB-14,Personal locator beacon,Beacon,Bharati,Available,56,-69.4176,76.1785,EXP-46-ISEA
+AST-PLB-15,Personal locator beacon,Beacon,Maitri,Available,60,-70.7476,11.7698,
+AST-PLB-16,Personal locator beacon,Beacon,Bharati,In use,96,-69.4008,76.1614,EXP-46-ISEA
+AST-PLB-17,Personal locator beacon,Beacon,Traverse,In use,58,-71.0094,74.7664,EXP-46-ISEA
+AST-PLB-18,Personal locator beacon,Beacon,Bharati,In use,44,-69.4232,76.1711,EXP-46-ISEA
+AST-PLB-19,Personal locator beacon,Beacon,Bharati,In use,63,-69.392,76.1826,EXP-46-ISEA
+AST-PLB-20,Personal locator beacon,Beacon,Traverse,Maintenance,65,-71.0085,74.8144,EXP-46-ISEA
+AST-PLB-21,Personal locator beacon,Beacon,Bharati,In use,35,-69.3935,76.1986,EXP-46-ISEA
+AST-PLB-22,Personal locator beacon,Beacon,Maitri,In use,94,-70.7493,11.753,
+AST-PLB-23,Personal locator beacon,Beacon,Traverse,In use,88,-70.9886,74.7673,EXP-46-ISEA
+AST-PLB-24,Personal locator beacon,Beacon,Maitri,In use,76,-70.7814,11.7067,
+AST-PLB-25,Personal locator beacon,Beacon,Bharati,In use,87,-69.4037,76.1736,EXP-46-ISEA
+AST-PLB-26,Personal locator beacon,Beacon,Cape Town hub,Available,83,-33.9258,18.4689,
+AST-PLB-27,Personal locator beacon,Beacon,Traverse,In use,87,-70.9816,74.7794,EXP-46-ISEA
+AST-PLB-28,Personal locator beacon,Beacon,Traverse,Available,58,-71.0184,74.8001,EXP-46-ISEA
+AST-PLB-29,Personal locator beacon,Beacon,Bharati,In use,72,-69.4245,76.1704,EXP-46-ISEA
+AST-PLB-30,Personal locator beacon,Beacon,Bharati,In use,66,-69.3995,76.1657,EXP-46-ISEA

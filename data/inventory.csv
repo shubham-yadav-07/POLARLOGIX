@@ -1,0 +1,9 @@
+id,name,category,qty,unit,daily_use,min_qty,station
+INV-FOOD,Ration packs,food,312,packs,40,200,Traverse
+INV-DIESEL-T,Diesel (traverse),fuel,1250,L,190,800,Traverse
+INV-MELT,Melt-water fuel,water,96,kg,16,60,Traverse
+INV-MED,Medical kits,medical,14,kits,0.3,8,Traverse
+INV-LI,Li-ion spare cells,spare,22,cells,1.2,10,Traverse
+INV-DIESEL-S,Bulk diesel (station),station_fuel,48500,L,420,20000,Bharati
+INV-GAS,Cooking gas cylinders,station_fuel,64,cylinders,1.5,20,Bharati
+INV-FLARE,Signal flares,safety,36,flares,0.1,12,Bharati

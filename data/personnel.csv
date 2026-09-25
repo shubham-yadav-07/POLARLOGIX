@@ -1,0 +1,38 @@
+id,name,role,team,mission_id,station,lat,lon,checkin_interval_min,last_checkin_min_ago
+P-001,Ananya Kamath,Glaciologist,Alpha,EXP-46-ISEA,Bharati,-69.4066,76.1804,180,96
+P-002,Rajesh Bose,Field engineer,Alpha,EXP-46-ISEA,Bharati,-69.4091,76.1899,180,48
+P-003,Imran Iyer,Glaciologist,Alpha,EXP-46-ISEA,Bharati,-69.4121,76.1897,180,132
+P-004,Isha Rane,Mechanic,Alpha,EXP-46-ISEA,Bharati,-69.4107,76.1814,180,14
+P-005,Tenzin Sawant,Radio operator,Alpha,EXP-46-ISEA,Bharati,-69.4116,76.1845,180,130
+P-006,Sunita Menon,Field engineer,Alpha,EXP-46-ISEA,Bharati,-69.4109,76.1919,180,93
+P-007,Aarav Dorjee,Team lead,Bravo,EXP-46-ISEA,Traverse,-70.9997,74.807,180,170
+P-008,Deepak Chatterjee,Medical officer,Bravo,EXP-46-ISEA,Traverse,-71.0018,74.8032,180,170
+P-009,Sneha Warrier,Mountaineer,Bravo,EXP-46-ISEA,Traverse,-71.001,74.8098,180,170
+P-010,Lakshmi Ghosh,Station leader,Base-Bharati,EXP-46-ISEA,Bharati,-69.407,76.1843,240,108
+P-011,Nikhil Joshi,Met observer,Base-Bharati,EXP-46-ISEA,Bharati,-69.412,76.1778,240,107
+P-012,Manoj Naik,Cook,Base-Bharati,EXP-46-ISEA,Bharati,-69.4093,76.1831,240,40
+P-013,Joseph Patil,Electrician,Base-Bharati,EXP-46-ISEA,Bharati,-69.4074,76.1934,240,177
+P-014,Bhavna Thomas,Doctor,Base-Bharati,EXP-46-ISEA,Bharati,-69.405,76.1778,240,140
+P-015,Sanjay Kapoor,Logistics officer,Base-Bharati,EXP-46-ISEA,Bharati,-69.4101,76.1866,240,73
+P-016,Shreya Kulkarni,Mechanic,Base-Bharati,EXP-46-ISEA,Bharati,-69.4079,76.1815,240,85
+P-017,Anjali Fernandes,IT engineer,Base-Bharati,EXP-46-ISEA,Bharati,-69.4097,76.1946,240,167
+P-018,Gautam D'Souza,Station leader,Base-Maitri,EXP-MAITRI,Maitri,-70.7676,11.7383,240,179
+P-019,Vikram Bhatt,Met observer,Base-Maitri,EXP-MAITRI,Maitri,-70.7627,11.7418,240,165
+P-020,Karthik Mehta,Cook,Base-Maitri,EXP-MAITRI,Maitri,-70.7632,11.7375,240,135
+P-021,Pooja Das,Electrician,Base-Maitri,EXP-MAITRI,Maitri,-70.7684,11.732,240,94
+P-022,Divya Lal,Doctor,Base-Maitri,EXP-MAITRI,Maitri,-70.7639,11.7248,240,13
+P-023,Suresh Sethi,Mechanic,Base-Maitri,EXP-MAITRI,Maitri,-70.7642,11.7353,240,177
+P-024,Meera Reddy,Radio operator,Base-Maitri,EXP-MAITRI,Maitri,-70.7706,11.7416,240,62
+P-025,Zoya Shetty,Pilot,Base-Maitri,EXP-MAITRI,Maitri,-70.7653,11.7237,240,53
+P-026,Amit Khan,Logistics lead,Logistics-Maitri,EXP-MAITRI,Maitri,-70.7648,11.7377,240,151
+P-027,Varun Singh,Flight coordinator,Logistics-Maitri,EXP-MAITRI,Maitri,-70.7658,11.7385,240,32
+P-028,Priya Verma,Storekeeper,Logistics-Maitri,EXP-MAITRI,Maitri,-70.7659,11.7381,240,40
+P-029,Neha Sharma,Campaign lead,Himadri,EXP-HIMADRI,Himadri,78.9193,11.9229,360,17
+P-030,Rahul Mishra,Field scientist,Himadri,EXP-HIMADRI,Himadri,78.9187,11.9231,360,39
+P-031,Kavya Pandey,Glaciologist,Himansh,EXP-HIMANSH,Himansh,32.334,77.5978,360,264
+P-032,Ritu Yadav,Field assistant,Himansh,EXP-HIMANSH,Himansh,32.3283,77.5924,360,90
+P-033,Farah Nair,Master,Vessel,EXP-MAITRI,Vessel,-63.2021,47.0053,240,94
+P-034,Tanvi Pillai,Chief officer,Vessel,EXP-MAITRI,Vessel,-63.196,47.0018,240,94
+P-035,Rohan Rao,Chief engineer,Vessel,EXP-MAITRI,Vessel,-63.1989,47.0097,240,163
+P-036,Harish Gupta,Ice pilot,Vessel,EXP-MAITRI,Vessel,-63.1991,47.0009,240,135
+P-037,Arjun Roy,Voyage doctor,Vessel,EXP-MAITRI,Vessel,-63.2021,47.0082,240,161
