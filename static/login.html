@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POLARLOGIX — Sign in</title>
+<link rel="stylesheet" href="/static/css/app.css">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0e3a58">
+<script>
+(function(){ try{ var t=localStorage.getItem('pl_theme')||'light'; document.documentElement.setAttribute('data-theme',t); }catch(e){} })();
+</script>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="logo"><div class="logo-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6z"/></svg></div></div>
+    <h1>POLARLOGIX</h1>
+    <p>Polar expedition logistics &amp; GIS &middot; sign in to continue</p>
+    <div class="login-err" id="err"></div>
+    <form id="loginForm">
+      <div class="field"><label for="u">Username</label><input type="text" id="u" autocomplete="username" required></div>
+      <div class="field"><label for="p">Password</label><input type="password" id="p" autocomplete="current-password" required></div>
+      <button class="btn full" type="submit" id="go">Sign in</button>
+    </form>
+    <div class="demo-creds">
+      <b>Demo accounts</b> (password: <span class="mono">polar2026</span> unless the operator changed it)
+      <table>
+        <tr><td class="mono">control</td><td>Mission manager</td></tr>
+        <tr><td class="mono">leader</td><td>Station leader</td></tr>
+        <tr><td class="mono">bravo</td><td>Field device, Team Bravo</td></tr>
+        <tr><td class="mono">logistics</td><td>Logistics officer</td></tr>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:14px">
+      <button class="b-ghost" type="button" id="themeBtn" style="font-size:11px">Toggle dark / light</button>
+    </div>
+  </div>
+</div>
+<script src="/static/js/api.js"></script>
+<script>
+$('themeBtn').onclick = () => window.PL.toggleTheme();
+$('loginForm').onsubmit = async (e) => {
+  e.preventDefault();
+  const err = $('err'); err.classList.remove('on');
+  const btn = $('go'); btn.disabled = true; btn.textContent = 'Signing in…';
+  try {
+    await window.PL.login($('u').value.trim(), $('p').value);
+    location.href = '/';
+  } catch (ex) {
+    err.textContent = ex.message || 'Sign in failed';
+    err.classList.add('on');
+  } finally {
+    btn.disabled = false; btn.textContent = 'Sign in';
+  }
+};
+function $(id){ return document.getElementById(id); }
+</script>
+</body>
+</html>
