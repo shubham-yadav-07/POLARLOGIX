@@ -17,8 +17,12 @@
 <!-- ================= top bar ================= -->
 <header class="top">
   <div class="logo"><div class="logo-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6z"/></svg></div>
+<<<<<<< HEAD
     <div><b>POLARLOGIX</b><small>Polar expedition logistics &amp; GIS</small></div></div>
   <div class="st"><span id="stDot" class="dotg"></span>Station: <b id="stName">Bharati Station</b></div>
+=======
+    <div><b>POLARLOGIX</b><small>Polar expedition logistics &amp; GIS</small></div></div>  <div class="st"><span id="stDot" class="dotg"></span>Station: <b id="stName">Bharati Station</b></div>
+>>>>>>> d297bfc (fix: replace unauthenticated download links; remove version tag)
   <div class="search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>Search expeditions, snowcats, personnel, SAR cases</div>
   <div class="sp"></div>
   <button class="b-ghost" id="drawerBtn">Demo steps</button>
@@ -214,10 +218,10 @@
   <div class="gr g2 mb">
     <div class="card"><div class="card-h"><h3>Exports</h3></div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <a class="btn w" href="/api/reports/audit.csv" download>Download audit log (.csv)</a>
-        <a class="btn w" href="/api/reports/incidents.csv" download>Download incidents (.csv)</a>
-        <a class="btn w" href="/api/reports/cargo-history.csv" download>Download cargo history (.csv)</a>
-        <a class="btn w" href="/api/reports/sync-events.csv" download>Download sync events (.csv)</a>
+                <button class="btn w dl" data-path="/api/reports/audit.csv" data-file="audit_log.csv">Download audit log (.csv)</button>
+        <button class="btn w dl" data-path="/api/reports/incidents.csv" data-file="incidents.csv">Download incidents (.csv)</button>
+        <button class="btn w dl" data-path="/api/reports/cargo-history.csv" data-file="cargo_history.csv">Download cargo history (.csv)</button>
+        <button class="btn w dl" data-path="/api/reports/sync-events.csv" data-file="sync_events.csv">Download sync events (.csv)</button>
       </div></div>
     <div class="card"><div class="card-h"><h3>Sync log</h3></div><div id="syncLogBody"><div class="fine">Loading…</div></div></div>
   </div>
