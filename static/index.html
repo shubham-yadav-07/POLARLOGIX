@@ -8,229 +8,890 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e3a58">
 <script>
-(function(){ try{ var t=localStorage.getItem('pl_theme')||'light'; document.documentElement.setAttribute('data-theme',t); }catch(e){} })();
+(function(){
+  try{
+    var t=localStorage.getItem('pl_theme')||'light';
+    document.documentElement.setAttribute('data-theme',t);
+  }catch(e){}
+})();
 </script>
 </head>
+
 <body>
 <div class="app">
 
 <!-- ================= top bar ================= -->
 <header class="top">
-  <div class="logo"><div class="logo-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2 6-6 2 2-6z"/></svg></div>
-    <div><b>POLARLOGIX</b><small>Polar expedition logistics &amp; GIS</small></div></div>
-  <div class="st"><span id="stDot" class="dotg"></span>Station: <b id="stName">Bharati Station</b></div>
-    <div><b>POLARLOGIX</b><small>Polar expedition logistics &amp; GIS</small></div></div>  <div class="st"><span id="stDot" class="dotg"></span>Station: <b id="stName">Bharati Station</b></div>
-  <div class="search"><svg class="ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>Search expeditions, snowcats, personnel, SAR cases</div>
+  <div class="logo">
+    <div class="logo-box">
+      <svg class="ic" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M15 9l-2 6-6 2 2-6z"/>
+      </svg>
+    </div>
+    <div>
+      <b>POLARLOGIX</b>
+      <small>Polar expedition logistics &amp; GIS</small>
+    </div>
+  </div>
+
+  <div class="st">
+    <span id="stDot" class="dotg"></span>
+    Station: <b id="stName">Bharati Station</b>
+  </div>
+
+  <div class="search">
+    <svg class="ic" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="M21 21l-4-4"/>
+    </svg>
+    Search expeditions, snowcats, personnel, SAR cases
+  </div>
+
   <div class="sp"></div>
+
   <button class="b-ghost" id="drawerBtn">Demo steps</button>
   <button class="b-sar idle" id="sarBtn">No active incident</button>
-  <button class="b-sat" id="netBtn"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12a10 10 0 0114 0M8 15a6 6 0 018 0"/><circle cx="12" cy="18" r="1"/></svg><span id="netTxt">Online</span></button>
-  <button class="b-icon" id="themeBtn" title="Toggle dark / light">
-    <svg class="ic" id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+
+  <button class="b-sat" id="netBtn">
+    <svg class="ic" viewBox="0 0 24 24">
+      <path d="M5 12a10 10 0 0114 0M8 15a6 6 0 018 0"/>
+      <circle cx="12" cy="18" r="1"/>
+    </svg>
+    <span id="netTxt">Online</span>
   </button>
-  <div class="bell" id="bellBtn"><svg class="ic" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0112 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 004 0"/></svg><i id="bellN" style="display:none">0</i></div>
-  <div class="user" id="userBox"><div class="av" id="userAv">?</div><div><b id="userName">…</b><small id="userRole">…</small></div>
-    <div class="user-menu" id="userMenu"><button id="logoutBtn">Sign out</button></div>
+
+  <button class="b-icon" id="themeBtn" title="Toggle dark / light">
+    <svg class="ic" id="themeIcon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>
+    </svg>
+  </button>
+
+  <div class="bell" id="bellBtn">
+    <svg class="ic" viewBox="0 0 24 24">
+      <path d="M6 8a6 6 0 0112 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 004 0"/>
+    </svg>
+    <i id="bellN" style="display:none">0</i>
+  </div>
+
+  <div class="user" id="userBox">
+    <div class="av" id="userAv">?</div>
+    <div>
+      <b id="userName">…</b>
+      <small id="userRole">…</small>
+    </div>
+    <div class="user-menu" id="userMenu">
+      <button id="logoutBtn">Sign out</button>
+    </div>
   </div>
 </header>
 
 <!-- ================= sidebar ================= -->
 <nav class="side" id="side">
   <h6>EXPEDITION OPERATIONS</h6>
-  <button class="nav on" data-v="dash"><i data-i="dash"></i>Dashboard</button>
-  <button class="nav" data-v="missions"><i data-i="missions"></i>Missions</button>
-  <button class="nav" data-v="gis"><i data-i="gis"></i>Live GIS Map</button>
-  <button class="nav" data-v="assets"><i data-i="assets"></i>Assets &amp; Fleet</button>
-  <button class="nav" data-v="cargo"><i data-i="cargo"></i>Logistics &amp; Cargo</button>
-  <button class="nav" data-v="people"><i data-i="people"></i>Personnel</button>
-  <button class="nav" data-v="risk"><i data-i="risk"></i>Route Risk</button>
-  <button class="nav" data-v="cold"><i data-i="cold"></i>Cold-Chain Samples</button>
-  <button class="nav" data-v="sar"><i data-i="sar"></i>Emergencies &amp; SAR<span class="n" id="sarBadge" style="display:none">1</span></button>
-  <button class="nav" data-v="inv"><i data-i="inv"></i>Inventory &amp; 5-Day</button>
-  <button class="nav" data-v="ai"><i data-i="ai"></i>AI Assistant</button>
-  <button class="nav" data-v="sync"><i data-i="sync"></i>Offline Sync<span class="n a" id="syncBadge" style="display:none">0</span></button>
-  <button class="nav" data-v="reports"><i data-i="reports"></i>Reports &amp; Audit</button>
-  <div class="edge"><b>Backend</b> <span id="dbBadge" style="color:var(--green)">&#9679; connecting…</span><br><span class="mono" id="deviceLabel" style="font-size:10.5px">device: …</span></div>
+
+  <button class="nav on" data-v="dash">
+    <i data-i="dash"></i>Dashboard
+  </button>
+
+  <button class="nav" data-v="missions">
+    <i data-i="missions"></i>Missions
+  </button>
+
+  <button class="nav" data-v="gis">
+    <i data-i="gis"></i>Live GIS Map
+  </button>
+
+  <button class="nav" data-v="assets">
+    <i data-i="assets"></i>Assets &amp; Fleet
+  </button>
+
+  <button class="nav" data-v="cargo">
+    <i data-i="cargo"></i>Logistics &amp; Cargo
+  </button>
+
+  <button class="nav" data-v="people">
+    <i data-i="people"></i>Personnel
+  </button>
+
+  <button class="nav" data-v="risk">
+    <i data-i="risk"></i>Route Risk
+  </button>
+
+  <button class="nav" data-v="cold">
+    <i data-i="cold"></i>Cold-Chain Samples
+  </button>
+
+  <button class="nav" data-v="sar">
+    <i data-i="sar"></i>Emergencies &amp; SAR
+    <span class="n" id="sarBadge" style="display:none">1</span>
+  </button>
+
+  <button class="nav" data-v="inv">
+    <i data-i="inv"></i>Inventory &amp; 5-Day
+  </button>
+
+  <button class="nav" data-v="ai">
+    <i data-i="ai"></i>AI Assistant
+  </button>
+
+  <button class="nav" data-v="sync">
+    <i data-i="sync"></i>Offline Sync
+    <span class="n a" id="syncBadge" style="display:none">0</span>
+  </button>
+
+  <button class="nav" data-v="reports">
+    <i data-i="reports"></i>Reports &amp; Audit
+  </button>
+
+  <div class="edge">
+    <b>Backend</b>
+    <span id="dbBadge" style="color:var(--green)">&#9679; connecting…</span>
+    <br>
+    <span class="mono" id="deviceLabel" style="font-size:10.5px">device: …</span>
+  </div>
 </nav>
 
 <main id="main">
 
 <!-- ================= DASHBOARD ================= -->
 <section class="view on" id="v-dash">
-  <div class="ph"><div><h1>Mission Control Overview <span class="chip g" id="opChip" style="vertical-align:3px">OPERATIONAL</span></h1>
-    <p>Centralized telemetry, field team safety, cryogenic cold-chain and low-bandwidth synchronization</p></div>
-    <div class="sp"></div><div class="pill mono" id="clock">UTC --:-- | Bharati Base</div></div>
+  <div class="ph">
+    <div>
+      <h1>
+        Mission Control Overview
+        <span class="chip g" id="opChip" style="vertical-align:3px">OPERATIONAL</span>
+      </h1>
+      <p>Centralized telemetry, field team safety, cryogenic cold-chain and low-bandwidth synchronization</p>
+    </div>
+    <div class="sp"></div>
+    <div class="pill mono" id="clock">UTC --:-- | Bharati Base</div>
+  </div>
 
   <div class="gr g6 mb">
-    <div class="card kpi"><div class="l">Active expeditions</div><div class="v2" id="kActive">–</div><div class="s" id="kActiveS">–</div></div>
-    <div class="card kpi"><div class="l">Field personnel</div><div class="v2" id="kPersonnel">–</div><div class="s" id="kPersonnelS">–</div></div>
-    <div class="card kpi"><div class="l">Active assets</div><div class="v2" id="kAssets">–</div><div class="s">Snowcats, UAVs, ships</div></div>
-    <div class="card kpi"><div class="l">Cargo in transit</div><div class="v2" id="kCargo">–</div><div class="s">Goa → Cape Town → station</div></div>
-    <div class="card kpi" id="kAlertCard"><div class="l">Critical alerts</div><div class="v2" id="kAlert">–</div><div class="s" id="kAlertS">–</div></div>
-    <div class="card kpi"><div class="l">Network link</div><div class="v2" id="kLink" style="font-size:17px;padding:6px 0 5px;text-transform:uppercase">–</div><div class="s" id="kLinkS">–</div></div>
+    <div class="card kpi">
+      <div class="l">Active expeditions</div>
+      <div class="v2" id="kActive">–</div>
+      <div class="s" id="kActiveS">–</div>
+    </div>
+
+    <div class="card kpi">
+      <div class="l">Field personnel</div>
+      <div class="v2" id="kPersonnel">–</div>
+      <div class="s" id="kPersonnelS">–</div>
+    </div>
+
+    <div class="card kpi">
+      <div class="l">Active assets</div>
+      <div class="v2" id="kAssets">–</div>
+      <div class="s">Snowcats, UAVs, ships</div>
+    </div>
+
+    <div class="card kpi">
+      <div class="l">Cargo in transit</div>
+      <div class="v2" id="kCargo">–</div>
+      <div class="s">Goa → Cape Town → station</div>
+    </div>
+
+    <div class="card kpi" id="kAlertCard">
+      <div class="l">Critical alerts</div>
+      <div class="v2" id="kAlert">–</div>
+      <div class="s" id="kAlertS">–</div>
+    </div>
+
+    <div class="card kpi">
+      <div class="l">Network link</div>
+      <div class="v2" id="kLink" style="font-size:17px;padding:6px 0 5px;text-transform:uppercase">–</div>
+      <div class="s" id="kLinkS">–</div>
+    </div>
   </div>
 
   <div class="gr g-main mb">
     <div class="card">
-      <div class="card-h"><h3>Antarctic Expedition GIS Overview</h3><span class="chip">Indian sector: Dronning Maud Land to Prydz Bay</span><div class="sp"></div><a data-v="gis">Open full interactive GIS &rsaquo;</a></div>
-      <div class="map" id="dashMap"><div class="fine" style="padding:20px">Loading map…</div></div>
-      <div class="legend"><span><i style="background:#0e3a58"></i>Station</span><span><i style="background:#fff;border:2px solid #0e3a58"></i>Summer base (planned)</span><span><i style="background:#12805c;border-radius:50%"></i>Field team</span><span><i style="background:#d92d20;border-radius:50%"></i>Incident</span></div>
+      <div class="card-h">
+        <h3>Antarctic Expedition GIS Overview</h3>
+        <span class="chip">Indian sector: Dronning Maud Land to Prydz Bay</span>
+        <div class="sp"></div>
+        <a data-v="gis">Open full interactive GIS &rsaquo;</a>
+      </div>
+
+      <div class="map" id="dashMap">
+        <div class="fine" style="padding:20px">Loading map…</div>
+      </div>
+
+      <div class="legend">
+        <span><i style="background:#0e3a58"></i>Station</span>
+        <span><i style="background:#fff;border:2px solid #0e3a58"></i>Summer base (planned)</span>
+        <span><i style="background:#12805c;border-radius:50%"></i>Field team</span>
+        <span><i style="background:#d92d20;border-radius:50%"></i>Incident</span>
+      </div>
     </div>
-    <div class="card"><div class="card-h"><h3>Critical Mission Alerts</h3><span class="chip a" id="alertCount">– open</span><div class="sp"></div><a data-v="sar">SAR hub</a></div><div id="alertList"><div class="fine">Loading…</div></div></div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Critical Mission Alerts</h3>
+        <span class="chip a" id="alertCount">– open</span>
+        <div class="sp"></div>
+        <a data-v="sar">SAR hub</a>
+      </div>
+      <div id="alertList">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
   </div>
 
   <div class="gr g4">
-    <div class="card"><div class="card-h"><h3>5-Day Survival Check</h3><div class="sp"></div><span class="chip g" id="survTag">–</span></div><div id="survBody"><div class="fine">Loading…</div></div></div>
-    <div class="card"><div class="card-h"><h3>Station Fuel &amp; Power</h3></div><div id="fuelBody"><div class="fine">Loading…</div></div></div>
-    <div class="card"><div class="card-h"><h3>Sample Cold-Chain</h3><div class="sp"></div><span class="chip a" id="coldTag">–</span></div><div id="coldBody"><div class="fine">Loading…</div></div></div>
-    <div class="card"><div class="card-h"><h3>Polar Weather</h3><div class="sp"></div><span class="chip g">AWS ONLINE</span></div><div id="wxBody"><div class="fine">Loading…</div></div></div>
+    <div class="card">
+      <div class="card-h">
+        <h3>5-Day Survival Check</h3>
+        <div class="sp"></div>
+        <span class="chip g" id="survTag">–</span>
+      </div>
+      <div id="survBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Station Fuel &amp; Power</h3>
+      </div>
+      <div id="fuelBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Sample Cold-Chain</h3>
+        <div class="sp"></div>
+        <span class="chip a" id="coldTag">–</span>
+      </div>
+      <div id="coldBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Polar Weather</h3>
+        <div class="sp"></div>
+        <span class="chip g">AWS ONLINE</span>
+      </div>
+      <div id="wxBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= MISSIONS ================= -->
 <section class="view" id="v-missions">
-  <div class="ph"><div><h1>Expeditions &amp; Traverse Missions <span class="chip" id="missionCount">– total</span></h1><p>Planning, timeline tracking, field party allocation and route authorization</p></div>
-    <div class="sp"></div><button class="btn" id="newMissionBtn">+ Plan New Expedition</button></div>
-  <div class="gr" style="grid-template-columns:1.5fr 1fr;align-items:start"><div id="missionList"><div class="fine">Loading…</div></div><div class="card" id="dossier"></div></div>
+  <div class="ph">
+    <div>
+      <h1>Expeditions &amp; Traverse Missions <span class="chip" id="missionCount">– total</span></h1>
+      <p>Planning, timeline tracking, field party allocation and route authorization</p>
+    </div>
+    <div class="sp"></div>
+    <button class="btn" id="newMissionBtn">+ Plan New Expedition</button>
+  </div>
+
+  <div class="gr" style="grid-template-columns:1.5fr 1fr;align-items:start">
+    <div id="missionList">
+      <div class="fine">Loading…</div>
+    </div>
+    <div class="card" id="dossier"></div>
+  </div>
 </section>
 
 <!-- ================= GIS ================= -->
 <section class="view" id="v-gis">
-  <div class="ph"><div><h1>Live GIS Map</h1><p>Coastline and ice shelves are real (Natural Earth 1:50m). Positions come from check-ins, beacons and the asset registry.</p></div></div>
+  <div class="ph">
+    <div>
+      <h1>Live GIS Map</h1>
+      <p>Coastline and ice shelves are real (Natural Earth 1:50m). Positions come from check-ins, beacons and the asset registry.</p>
+    </div>
+  </div>
+
   <div class="gr g-main">
-    <div class="card"><div class="map" id="gisMap" style="min-height:420px"><div class="fine" style="padding:20px">Loading map…</div></div>
-      <div class="fine" style="margin-top:8px">Projection: polar stereographic (south), 0&deg; meridian up.</div></div>
-    <div class="card"><div class="card-h"><h3>Tracked positions</h3></div><table><thead><tr><th>Object</th><th>Layer</th></tr></thead><tbody id="posBody"><tr><td colspan="2" class="fine">Loading…</td></tr></tbody></table></div>
+    <div class="card">
+      <div class="map" id="gisMap" style="min-height:420px">
+        <div class="fine" style="padding:20px">Loading map…</div>
+      </div>
+      <div class="fine" style="margin-top:8px">Projection: polar stereographic (south), 0&deg; meridian up.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Tracked positions</h3>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Object</th>
+            <th>Layer</th>
+          </tr>
+        </thead>
+        <tbody id="posBody">
+          <tr>
+            <td colspan="2" class="fine">Loading…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
 <!-- ================= ASSETS ================= -->
 <section class="view" id="v-assets">
-  <div class="ph"><div><h1>Assets &amp; Fleet</h1><p>Vehicles, aircraft, power and cold-storage units</p></div></div>
+  <div class="ph">
+    <div>
+      <h1>Assets &amp; Fleet</h1>
+      <p>Vehicles, aircraft, power and cold-storage units</p>
+    </div>
+  </div>
+
   <div class="card">
-    <div class="form"><input type="text" id="aName" placeholder="Asset name" style="width:200px"><select id="aType"><option>Snowcat</option><option>UAV</option><option>Generator</option><option>Sledge</option><option>Cold storage</option><option>Boat</option><option>Drill rig</option></select><select id="aSt"><option>Bharati</option><option>Maitri</option><option>Cape Town hub</option></select><button class="btn" id="addAssetBtn">Add asset</button></div>
-    <table><thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Location</th><th>Status</th><th class="r">Fuel / battery</th><th>Last seen</th><th></th></tr></thead><tbody id="assetBody"><tr><td colspan="8" class="fine">Loading…</td></tr></tbody></table>
+    <div class="form">
+      <input type="text" id="aName" placeholder="Asset name" style="width:200px">
+      <select id="aType">
+        <option>Snowcat</option>
+        <option>UAV</option>
+        <option>Generator</option>
+        <option>Sledge</option>
+        <option>Cold storage</option>
+        <option>Boat</option>
+        <option>Drill rig</option>
+      </select>
+      <select id="aSt">
+        <option>Bharati</option>
+        <option>Maitri</option>
+        <option>Cape Town hub</option>
+      </select>
+      <button class="btn" id="addAssetBtn">Add asset</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th class="r">Fuel / battery</th>
+          <th>Last seen</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="assetBody">
+        <tr>
+          <td colspan="8" class="fine">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <!-- ================= CARGO ================= -->
 <section class="view" id="v-cargo">
-  <div class="ph"><div><h1>Logistics &amp; Cargo</h1><p>Chain of custody from NCPOR Goa to the station. Each handoff is recorded.</p></div>
-    <div class="sp"></div><select id="cargoConsignSel" style="min-width:160px"></select></div>
-  <div class="card mb" id="cargoChainCard"><div class="fine">Loading…</div></div>
+  <div class="ph">
+    <div>
+      <h1>Logistics &amp; Cargo</h1>
+      <p>Chain of custody from NCPOR Goa to the station. Each handoff is recorded.</p>
+    </div>
+    <div class="sp"></div>
+    <select id="cargoConsignSel" style="min-width:160px"></select>
+  </div>
+
+  <div class="card mb" id="cargoChainCard">
+    <div class="fine">Loading…</div>
+  </div>
+
   <div class="gr g2">
-    <div class="card"><div class="card-h"><h3>Pre-departure cargo check</h3></div><table><thead><tr><th>Item</th><th class="r">Weight</th><th>Mode</th><th>Check</th></tr></thead><tbody id="cargoCheckBody"><tr><td colspan="4" class="fine">Loading…</td></tr></tbody></table></div>
-    <div class="card"><div class="card-h"><h3>Rules used</h3></div><div id="cargoRulesBody"><div class="fine">Loading…</div></div></div>
+    <div class="card">
+      <div class="card-h">
+        <h3>Pre-departure cargo check</h3>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th class="r">Weight</th>
+            <th>Mode</th>
+            <th>Check</th>
+          </tr>
+        </thead>
+        <tbody id="cargoCheckBody">
+          <tr>
+            <td colspan="4" class="fine">Loading…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Rules used</h3>
+      </div>
+      <div id="cargoRulesBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= PERSONNEL ================= -->
 <section class="view" id="v-people">
-  <div class="ph"><div><h1>Personnel</h1><p>Check-in schedule for field parties.</p></div>
-    <div class="sp"></div><select id="teamFilter"><option value="">All teams</option></select></div>
-  <div class="card"><table><thead><tr><th>Name</th><th>Role</th><th>Team</th><th>Location</th><th>Last check-in</th><th>Next due</th><th>Status</th><th></th></tr></thead><tbody id="peopleBody"><tr><td colspan="8" class="fine">Loading…</td></tr></tbody></table></div>
+  <div class="ph">
+    <div>
+      <h1>Personnel</h1>
+      <p>Check-in schedule for field parties.</p>
+    </div>
+    <div class="sp"></div>
+    <select id="teamFilter">
+      <option value="">All teams</option>
+    </select>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Team</th>
+          <th>Location</th>
+          <th>Last check-in</th>
+          <th>Next due</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="peopleBody">
+        <tr>
+          <td colspan="8" class="fine">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- ================= RISK ================= -->
 <section class="view" id="v-risk">
-  <div class="ph"><div><h1>Route Risk</h1><p>Every score shows its parts and how old the data is</p></div></div>
-  <div class="gr g2">
-    <div class="card"><div class="card-h"><h3>Inputs</h3><span class="chip">Bharati to Sandhi (indicative)</span></div>
-      <div class="rr"><span>Sea-ice concentration</span><input type="range" id="rIce" min="0" max="100" value="62"><b id="rIceV"></b></div>
-      <div class="rr"><span>Wind speed</span><input type="range" id="rWind" min="0" max="60" value="24"><b id="rWindV"></b></div>
-      <div class="rr"><span>Visibility</span><input type="range" id="rVis" min="0" max="20" value="4"><b id="rVisV"></b></div>
-      <div class="rr"><span>Route length</span><input type="range" id="rDist" min="50" max="600" value="280"><b id="rDistV"></b></div>
-      <div class="rr"><span>Data age</span><input type="range" id="rAge" min="0" max="72" value="6"><b id="rAgeV"></b></div>
-      <div class="note">Score = 0.35 ice + 0.25 wind + 0.15 visibility + 0.10 distance + 0.15 data age. Computed server-side by /api/risk/score. Prototype weights, not validated.</div></div>
-    <div class="card"><div class="card-h"><h3>Result</h3></div>
-      <div style="text-align:center;padding:4px 0 10px"><div style="font-size:46px;font-weight:650;letter-spacing:-1px" id="rScore">–</div><span class="chip" id="rBand">–</span></div>
-      <div id="rParts"></div><div class="note" id="rWhy" style="margin:8px 0 10px"></div></div>
+  <div class="ph">
+    <div>
+      <h1>Route Risk</h1>
+      <p>Every score shows its parts and how old the data is</p>
+    </div>
   </div>
-  <div class="card mb" style="margin-top:14px"><div class="card-h"><h3>Live routes</h3></div><div id="routeBody"><div class="fine">Loading…</div></div></div>
+
+  <div class="gr g2">
+    <div class="card">
+      <div class="card-h">
+        <h3>Inputs</h3>
+        <span class="chip">Bharati to Sandhi (indicative)</span>
+      </div>
+
+      <div class="rr">
+        <span>Sea-ice concentration</span>
+        <input type="range" id="rIce" min="0" max="100" value="62">
+        <b id="rIceV"></b>
+      </div>
+
+      <div class="rr">
+        <span>Wind speed</span>
+        <input type="range" id="rWind" min="0" max="60" value="24">
+        <b id="rWindV"></b>
+      </div>
+
+      <div class="rr">
+        <span>Visibility</span>
+        <input type="range" id="rVis" min="0" max="20" value="4">
+        <b id="rVisV"></b>
+      </div>
+
+      <div class="rr">
+        <span>Route length</span>
+        <input type="range" id="rDist" min="50" max="600" value="280">
+        <b id="rDistV"></b>
+      </div>
+
+      <div class="rr">
+        <span>Data age</span>
+        <input type="range" id="rAge" min="0" max="72" value="6">
+        <b id="rAgeV"></b>
+      </div>
+
+      <div class="note">
+        Score = 0.35 ice + 0.25 wind + 0.15 visibility + 0.10 distance + 0.15 data age.
+        Computed server-side by /api/risk/score. Prototype weights, not validated.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Result</h3>
+      </div>
+
+      <div style="text-align:center;padding:4px 0 10px">
+        <div style="font-size:46px;font-weight:650;letter-spacing:-1px" id="rScore">–</div>
+        <span class="chip" id="rBand">–</span>
+      </div>
+
+      <div id="rParts"></div>
+      <div class="note" id="rWhy" style="margin:8px 0 10px"></div>
+    </div>
+  </div>
+
+  <div class="card mb" style="margin-top:14px">
+    <div class="card-h">
+      <h3>Live routes</h3>
+    </div>
+    <div id="routeBody">
+      <div class="fine">Loading…</div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= COLD ================= -->
 <section class="view" id="v-cold">
-  <div class="ph"><div><h1>Cold-Chain Samples</h1><p>Predicts when a sample will cross its safe limit</p></div>
-    <div class="sp"></div><select id="sampleSel"></select></div>
+  <div class="ph">
+    <div>
+      <h1>Cold-Chain Samples</h1>
+      <p>Predicts when a sample will cross its safe limit</p>
+    </div>
+    <div class="sp"></div>
+    <select id="sampleSel"></select>
+  </div>
+
   <div class="gr g2">
-    <div class="card"><div class="card-h" id="coldTitle"><h3>–</h3></div>
+    <div class="card">
+      <div class="card-h" id="coldTitle">
+        <h3>–</h3>
+      </div>
+
       <div id="coldChart"></div>
-      <div class="row"><span class="mute">Current</span><b class="mono" id="cNow"></b></div>
-      <div class="row"><span class="mute">Warming rate</span><b class="mono" id="cRate"></b></div>
-      <div class="row"><span class="mute">Reaches limit in</span><b class="mono" id="cETA"></b></div>
-      <div style="display:flex;gap:8px;margin-top:10px"><button class="btn" id="coldDelayBtn">Simulate 4 h traverse delay</button><button class="btn w" id="coldResetBtn">Reset simulation</button></div></div>
-    <div class="card"><div class="card-h"><h3>Add a reading</h3></div>
-      <div class="form"><input type="number" step="0.1" id="readTemp" placeholder="Temperature (°C)" style="width:180px"><input type="number" step="0.1" id="readAmbient" placeholder="Ambient (°C, optional)" style="width:180px"><button class="btn" id="addReadingBtn">Log reading</button></div>
-      <div class="note">Readings are queued offline-first through the same sync path as every other field event.</div></div>
+
+      <div class="row">
+        <span class="mute">Current</span>
+        <b class="mono" id="cNow"></b>
+      </div>
+
+      <div class="row">
+        <span class="mute">Warming rate</span>
+        <b class="mono" id="cRate"></b>
+      </div>
+
+      <div class="row">
+        <span class="mute">Reaches limit in</span>
+        <b class="mono" id="cETA"></b>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="btn" id="coldDelayBtn">Simulate 4 h traverse delay</button>
+        <button class="btn w" id="coldResetBtn">Reset simulation</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Add a reading</h3>
+      </div>
+
+      <div class="form">
+        <input type="number" step="0.1" id="readTemp" placeholder="Temperature (°C)" style="width:180px">
+        <input type="number" step="0.1" id="readAmbient" placeholder="Ambient (°C, optional)" style="width:180px">
+        <button class="btn" id="addReadingBtn">Log reading</button>
+      </div>
+
+      <div class="note">
+        Readings are queued offline-first through the same sync path as every other field event.
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= SAR ================= -->
 <section class="view" id="v-sar">
-  <div class="ph"><div><h1>Emergencies &amp; SAR <span class="chip" id="sarState" style="vertical-align:3px">STANDBY</span></h1><p>Missed check-in, incident, resources, search area. Every step is logged.</p></div>
-    <div class="sp"></div><button class="btn r" id="sarScenarioBtn">Run missed check-in scenario</button><button class="btn w" id="sarResetBtn">Reset</button></div>
+  <div class="ph">
+    <div>
+      <h1>
+        Emergencies &amp; SAR
+        <span class="chip" id="sarState" style="vertical-align:3px">STANDBY</span>
+      </h1>
+      <p>Missed check-in, incident, resources, search area. Every step is logged.</p>
+    </div>
+
+    <div class="sp"></div>
+
+    <button class="btn r" id="sarScenarioBtn">Run missed check-in scenario</button>
+    <button class="btn w" id="sarResetBtn">Reset</button>
+  </div>
+
   <div class="gr" style="grid-template-columns:1fr 1.5fr;align-items:start">
-    <div class="card"><div class="card-h"><h3>Incident workflow</h3></div><div class="tl" id="sarTL"><div class="fine">No incident yet.</div></div><div class="note">Simulation only. Not certified SAR software.</div></div>
-    <div class="card" style="padding:12px"><div class="card-h"><h3>Last known position and search area</h3><div class="sp"></div><span class="mono mute" id="sarInfo">Waiting for scenario</span></div>
+    <div class="card">
+      <div class="card-h">
+        <h3>Incident workflow</h3>
+      </div>
+
+      <div class="tl" id="sarTL">
+        <div class="fine">No incident yet.</div>
+      </div>
+
+      <div class="note">
+        Simulation only. Not certified SAR software.
+      </div>
+    </div>
+
+    <div class="card" style="padding:12px">
+      <div class="card-h">
+        <h3>Last known position and search area</h3>
+        <div class="sp"></div>
+        <span class="mono mute" id="sarInfo">Waiting for scenario</span>
+      </div>
+
       <div class="map" id="sarMap" style="min-height:340px"></div>
+
       <div class="gr g4" style="margin-top:10px;gap:8px">
-        <div><div class="fine">Field team</div><b id="sarTeam">–</b></div><div><div class="fine">Wind</div><b id="sarWind">–</b></div>
-        <div><div class="fine">Last beacon</div><b class="mono" id="sarBeacon">-</b></div><div><div class="fine">Search cells</div><b id="sarCells">-</b></div></div></div>
+        <div>
+          <div class="fine">Field team</div>
+          <b id="sarTeam">–</b>
+        </div>
+
+        <div>
+          <div class="fine">Wind</div>
+          <b id="sarWind">–</b>
+        </div>
+
+        <div>
+          <div class="fine">Last beacon</div>
+          <b class="mono" id="sarBeacon">-</b>
+        </div>
+
+        <div>
+          <div class="fine">Search cells</div>
+          <b id="sarCells">-</b>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================= INVENTORY ================= -->
 <section class="view" id="v-inv">
-  <div class="ph"><div><h1>Inventory &amp; 5-Day Survival</h1><p>Days left = stock / average daily use. Below minimum stock raises an alert.</p></div></div>
+  <div class="ph">
+    <div>
+      <h1>Inventory &amp; 5-Day Survival</h1>
+      <p>Days left = stock / average daily use. Below minimum stock raises an alert.</p>
+    </div>
+  </div>
+
   <div class="gr g2">
-    <div class="card"><div class="card-h"><h3>Stock at Bharati</h3></div><table><thead><tr><th>Item</th><th class="r">Qty</th><th class="r">Use/day</th><th class="r">Days left</th><th>Status</th><th></th></tr></thead><tbody id="invBody"><tr><td colspan="6" class="fine">Loading…</td></tr></tbody></table></div>
-    <div class="card"><div class="card-h"><h3>Days-left forecast</h3></div><div id="invChart"></div></div>
+    <div class="card">
+      <div class="card-h">
+        <h3>Stock at Bharati</h3>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th class="r">Qty</th>
+            <th class="r">Use/day</th>
+            <th class="r">Days left</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="invBody">
+          <tr>
+            <td colspan="6" class="fine">Loading…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Days-left forecast</h3>
+      </div>
+      <div id="invChart"></div>
+    </div>
   </div>
 </section>
 
 <!-- ================= AI ================= -->
 <section class="view" id="v-ai">
-  <div class="ph"><div><h1>AI Assistant</h1><p>Answers only from operational records and lists the records it used.</p></div></div>
-  <div class="card"><div class="chat" id="chat"></div><div style="display:flex;gap:8px;margin-top:8px"><input type="text" id="chatInput" placeholder="Ask about cargo, cold-chain, teams…" style="flex:1"><button class="btn" id="chatSendBtn">Ask</button></div><div class="sug" id="sugg"></div></div>
+  <div class="ph">
+    <div>
+      <h1>AI Assistant</h1>
+      <p>Answers only from operational records and lists the records it used.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="chat" id="chat"></div>
+
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <input type="text" id="chatInput" placeholder="Ask about cargo, cold-chain, teams…" style="flex:1">
+      <button class="btn" id="chatSendBtn">Ask</button>
+    </div>
+
+    <div class="sug" id="sugg"></div>
+  </div>
 </section>
 
 <!-- ================= SYNC ================= -->
 <section class="view" id="v-sync">
-  <div class="ph"><div><h1>Offline Sync</h1><p>Field devices write locally first (IndexedDB). Changes wait in a real queue and merge when the link is back.</p></div></div>
-  <div class="gr g2" style="align-items:start">
-    <div class="card"><div class="card-h"><h3>This device</h3></div>
-      <div class="vizbox" id="viz"><div class="node" style="left:12px">This browser<small id="deviceLabel2">…</small></div><div class="link" id="linkLine"></div><div class="linkl" id="linkLbl">Backend link</div><div class="node" style="right:12px">HQ Server<small>FastAPI</small></div></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn" id="testCheckinBtn">Test check-in</button><button class="btn w" id="testConflictBtn">Create test edit</button></div>
-      <div class="row"><span class="mute">Link</span><b id="syncState">Online</b></div><div class="row"><span class="mute">Pending events (this device)</span><b id="syncPend">0</b></div>
-      <button class="btn full" style="margin-top:8px" id="syncNowBtn">Sync now</button></div>
-    <div class="card"><div class="card-h"><h3>Local outbox (IndexedDB)</h3><div class="sp"></div><span class="fine" id="qSub"></span></div><div id="queue"></div></div>
+  <div class="ph">
+    <div>
+      <h1>Offline Sync</h1>
+      <p>Field devices write locally first (IndexedDB). Changes wait in a real queue and merge when the link is back.</p>
+    </div>
   </div>
-  <div class="card mb" style="margin-top:14px"><div class="card-h"><h3>Open conflicts</h3></div><div id="conflictBody"><div class="fine">None open.</div></div></div>
+
+  <div class="gr g2" style="align-items:start">
+    <div class="card">
+      <div class="card-h">
+        <h3>This device</h3>
+      </div>
+
+      <div class="vizbox" id="viz">
+        <div class="node" style="left:12px">
+          This browser
+          <small id="deviceLabel2">…</small>
+        </div>
+
+        <div class="link" id="linkLine"></div>
+        <div class="linkl" id="linkLbl">Backend link</div>
+
+        <div class="node" style="right:12px">
+          HQ Server
+          <small>FastAPI</small>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+        <button class="btn" id="testCheckinBtn">Test check-in</button>
+        <button class="btn w" id="testConflictBtn">Create test edit</button>
+      </div>
+
+      <div class="row">
+        <span class="mute">Link</span>
+        <b id="syncState">Online</b>
+      </div>
+
+      <div class="row">
+        <span class="mute">Pending events (this device)</span>
+        <b id="syncPend">0</b>
+      </div>
+
+      <button class="btn full" style="margin-top:8px" id="syncNowBtn">Sync now</button>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Local outbox (IndexedDB)</h3>
+        <div class="sp"></div>
+        <span class="fine" id="qSub"></span>
+      </div>
+
+      <div id="queue"></div>
+    </div>
+  </div>
+
+  <div class="card mb" style="margin-top:14px">
+    <div class="card-h">
+      <h3>Open conflicts</h3>
+    </div>
+    <div id="conflictBody">
+      <div class="fine">None open.</div>
+    </div>
+  </div>
 </section>
 
 <!-- ================= REPORTS ================= -->
 <section class="view" id="v-reports">
-  <div class="ph"><div><h1>Reports &amp; Audit</h1><p>Exportable CSVs and the live audit trail.</p></div></div>
+  <div class="ph">
+    <div>
+      <h1>Reports &amp; Audit</h1>
+      <p>Exportable CSVs and the live audit trail.</p>
+    </div>
+  </div>
+
   <div class="gr g2 mb">
-    <div class="card"><div class="card-h"><h3>Exports</h3></div>
+    <div class="card">
+      <div class="card-h">
+        <h3>Exports</h3>
+      </div>
+
       <div style="display:flex;flex-direction:column;gap:8px">
-                <button class="btn w dl" data-path="/api/reports/audit.csv" data-file="audit_log.csv">Download audit log (.csv)</button>
+        <button class="btn w dl" data-path="/api/reports/audit.csv" data-file="audit_log.csv">Download audit log (.csv)</button>
         <button class="btn w dl" data-path="/api/reports/incidents.csv" data-file="incidents.csv">Download incidents (.csv)</button>
         <button class="btn w dl" data-path="/api/reports/cargo-history.csv" data-file="cargo_history.csv">Download cargo history (.csv)</button>
         <button class="btn w dl" data-path="/api/reports/sync-events.csv" data-file="sync_events.csv">Download sync events (.csv)</button>
-      </div></div>
-    <div class="card"><div class="card-h"><h3>Sync log</h3></div><div id="syncLogBody"><div class="fine">Loading…</div></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <h3>Sync log</h3>
+      </div>
+      <div id="syncLogBody">
+        <div class="fine">Loading…</div>
+      </div>
+    </div>
   </div>
-  <div class="card"><div class="card-h"><h3>Audit trail</h3></div><table><thead><tr><th>Time</th><th>User</th><th>Action</th><th>Entity</th></tr></thead><tbody id="auditBody"><tr><td colspan="4" class="fine">Loading…</td></tr></tbody></table></div>
+
+  <div class="card">
+    <div class="card-h">
+      <h3>Audit trail</h3>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>User</th>
+          <th>Action</th>
+          <th>Entity</th>
+        </tr>
+      </thead>
+
+      <tbody id="auditBody">
+        <tr>
+          <td colspan="4" class="fine">Loading…</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-<div class="foot">POLARLOGIX &middot; role: <span id="footRole">–</span> &middot; personnel, cargo, inventory and telemetry are synthetic demo data. Coastline: Natural Earth. Risk score and SAR grid are decision-support simulations, not certified.</div>
+<div class="foot">
+  POLARLOGIX &middot; role: <span id="footRole">–</span> &middot;
+  personnel, cargo, inventory and telemetry are synthetic demo data.
+  Coastline: Natural Earth. Risk score and SAR grid are decision-support simulations, not certified.
+</div>
+
 </main>
 </div>
 
-<div class="drawer" id="drawer"><h4>Demo walkthrough</h4><div class="fine" style="margin-bottom:8px">Runs the offline → SAR → risk story end to end, against the real backend.</div><div id="demoSteps"></div>
-  <div style="display:flex;gap:8px;margin-top:12px"><button class="btn s" id="demoNextBtn">Run next step</button><button class="btn w s" id="demoResetBtn">Restart</button></div></div>
+<div class="drawer" id="drawer">
+  <h4>Demo walkthrough</h4>
+  <div class="fine" style="margin-bottom:8px">
+    Runs the offline → SAR → risk story end to end, against the real backend.
+  </div>
+
+  <div id="demoSteps"></div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <button class="btn s" id="demoNextBtn">Run next step</button>
+    <button class="btn w s" id="demoResetBtn">Restart</button>
+  </div>
+</div>
+
 <div id="toast"></div>
 
 <script src="/static/js/api.js"></script>
@@ -238,5 +899,6 @@
 <script src="/static/js/sync.js"></script>
 <script src="/static/js/map.js"></script>
 <script src="/static/js/app.js"></script>
+
 </body>
 </html>
