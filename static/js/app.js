@@ -46,6 +46,37 @@
   document.addEventListener('click', (e) => { if (!$('userBox').contains(e.target)) $('userMenu').classList.remove('on'); });
   $('themeBtn').onclick = () => window.PL.toggleTheme();
   $('drawerBtn').onclick = () => $('drawer').classList.toggle('on');
+  
+  /* ---------------------------------------------------------- notification bell */
+  let lastAlerts = [];
+  function renderBellPanel() {
+    let panel = $('bellPanel');
+    if (!panel) {
+      panel = document.createElement('div');
+      panel.id = 'bellPanel';
+      panel.className = 'user-menu';
+      panel.style.cssText = 'right:44px;min-width:320px;max-height:380px;overflow:auto;padding:8px';
+      $('bellBtn').style.position = 'relative';
+      $('bellBtn').appendChild(panel);
+    }
+    panel.innerHTML = lastAlerts.length
+      ? lastAlerts.map(a => `<div class="al ${a.level}" style="margin:6px"><div class="t"><span>${esc(a.title)}</span><span>${fmtT(a.at)}</span></div><p>${esc(a.detail)}</p></div>`).join('')
+      : '<div class="fine" style="padding:10px">No alerts.</div>';
+  }
+  $('bellBtn').onclick = (e) => {
+    e.stopPropagation();
+    const panel = $('bellPanel');
+    const willOpen = !(panel && panel.classList.contains('on'));
+    document.querySelectorAll('.user-menu').forEach(m => m.classList.remove('on'));
+    if (willOpen) { renderBellPanel(); $('bellPanel').classList.add('on'); }
+  };
+  document.addEventListener('click', (e) => { if (!$('bellBtn').contains(e.target)) { const p = $('bellPanel'); if (p) p.classList.remove('on'); } });
+  function updateBell(alerts) {
+    lastAlerts = alerts || [];
+    $('bellN').style.display = lastAlerts.length ? 'flex' : 'none';
+    $('bellN').textContent = lastAlerts.length;
+    if ($('bellPanel') && $('bellPanel').classList.contains('on')) renderBellPanel();
+  }
 
   const RENDERERS = { dash: renderDash, missions: renderMissions, gis: renderGIS, assets: renderAssets, cargo: renderCargo,
                       people: renderPeople, risk: renderRisk, cold: renderCold, sar: renderSAR, inv: renderInv, ai: renderAI,
@@ -99,6 +130,11 @@
     } catch { $('dbBadge').innerHTML = '&#9679; unreachable'; $('dbBadge').style.color = 'var(--red)'; }
   }
   setInterval(pollHealth, 15000); pollHealth();
+  
+  async function pollAlerts() {
+    try { const d = await window.PL.authFetch('/api/dashboard'); updateBell(d.alerts); } catch (e) { /* offline or logged out — leave bell as-is */ }
+  }
+  setInterval(pollAlerts, 20000); pollAlerts();
   setInterval(() => { $('clock').textContent = 'UTC ' + new Date().toISOString().substr(11, 5) + ' | Bharati Base'; }, 1000);
 
   /* ============================================================ DASHBOARD */
@@ -118,6 +154,7 @@
 
     $('alertCount').textContent = d.alerts.length + ' open';
     $('alertCount').className = 'chip ' + (d.alerts.some(a => a.level === 'r') ? 'r' : 'a');
+        updateBell(d.alerts);
     $('alertList').innerHTML = d.alerts.length ? d.alerts.map(a => `<div class="al ${a.level}"><div class="t"><span>${esc(a.title)}</span><span>${fmtT(a.at)}</span></div><p>${esc(a.detail)}</p><a data-v="${a.go}">${esc(a.cta)} &rarr;</a></div>`).join('') : '<div class="fine">No open alerts.</div>';
     $('alertList').querySelectorAll('a[data-v]').forEach(a => a.onclick = () => go(a.dataset.v));
 
@@ -396,10 +433,16 @@
     const log = await window.PL.authFetch('/api/sync/log?limit=15');
     $('syncLogBody').innerHTML = `<div class="row"><span class="mute">Accepted</span><b style="color:var(--green)">${log.stats.accepted}</b></div><div class="row"><span class="mute">Conflicts</span><b style="color:var(--amber)">${log.stats.conflict}</b></div><div class="row"><span class="mute">Rejected</span><b style="color:var(--red)">${log.stats.rejected}</b></div>` +
       log.events.map(e => `<div class="fine" style="margin-top:4px">${fmtT(e.at)} &middot; ${esc(e.device_id)} &middot; ${esc(e.summary)}</div>`).join('');
-    try {
+        try {
       const audit = await window.PL.authFetch('/api/reports/audit?limit=40');
       $('auditBody').innerHTML = audit.map(a => `<tr><td class="mono">${fmtDT(a.at)}</td><td>${esc(a.user)}</td><td>${esc(a.action)}</td><td class="fine">${esc(a.entity)} ${esc(a.entity_id)}</td></tr>`).join('') || '<tr><td colspan="4" class="fine">No audit rows yet.</td></tr>';
     } catch { $('auditBody').innerHTML = '<tr><td colspan="4" class="fine">Manager/leader role required.</td></tr>'; }
+    document.querySelectorAll('.dl').forEach(btn => btn.onclick = async () => {
+      const original = btn.textContent; btn.disabled = true; btn.textContent = 'Downloading…';
+      try { await window.PL.authDownload(btn.dataset.path, btn.dataset.file); toast('Downloaded ' + btn.dataset.file); }
+      catch (e) { handleErr(e); }
+      finally { btn.disabled = false; btn.textContent = original; }
+    });
   }
 
   /* ============================================================ demo walkthrough */
