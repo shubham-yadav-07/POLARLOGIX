@@ -76,5 +76,25 @@
   }
   (function initTheme() { applyTheme(localStorage.getItem(THEME_KEY) || 'light'); })();
 
-  window.PL = { login, logout, refresh, authFetch, requireAuth, getUser, getTokens, applyTheme, toggleTheme };
+  /** Downloads a file (CSV export, etc.) with the auth header a plain <a href> can't send,
+   *  then triggers a normal browser save via a temporary blob link. */
+  async function authDownload(path, filename) {
+    const t = getTokens();
+    if (!t) { location.href = '/login.html'; throw new Error('Not signed in'); }
+    let r = await fetch(path, { headers: { Authorization: 'Bearer ' + t.access } });
+    if (r.status === 401) {
+      await refresh();
+      const t2 = getTokens();
+      r = await fetch(path, { headers: { Authorization: 'Bearer ' + t2.access } });
+    }
+    if (!r.ok) { const e = new Error('Download failed: ' + r.status); e.status = r.status; throw e; }
+    const blob = await r.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename || path.split('/').pop();
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+
+  window.PL = { login, logout, refresh, authFetch, authDownload, requireAuth, getUser, getTokens, applyTheme, toggleTheme };
 })();
