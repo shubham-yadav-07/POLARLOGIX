@@ -9,6 +9,10 @@ PostgreSQL (or SQLite for local dev). Field devices write to a local IndexedDB q
 first and sync to the server when a link is available — this is real, not simulated:
 kill your network, make changes, reload the page, and they're still there.
 
+**Live app:** https://polarlogix-bk9e.onrender.com/
+
+**Demo video:** paste demo video link here
+
 ---
 
 ## Screenshots
