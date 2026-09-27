@@ -11,6 +11,26 @@ kill your network, make changes, reload the page, and they're still there.
 
 ---
 
+## Screenshots
+
+| Mission control dashboard | Expeditions & missions |
+|---|---|
+| ![Dashboard](docs/screenshots/01-dashboard.png) | ![Missions](docs/screenshots/02-missions.png) |
+
+| Cargo chain of custody | Explainable route risk |
+|---|---|
+| ![Cargo](docs/screenshots/03-cargo.png) | ![Route risk](docs/screenshots/04-route-risk.png) |
+
+| Missed check-in → SAR workflow | Offline queue (real IndexedDB) |
+|---|---|
+| ![SAR](docs/screenshots/05-sar.png) | ![Offline sync](docs/screenshots/06-offline-sync.png) |
+
+| Dark theme | Mobile / field device view |
+|---|---|
+| ![Dark theme](docs/screenshots/07-dark-theme.png) | <img src="docs/screenshots/08-mobile.png" width="260"> |
+
+---
+
 ## 1. What's real and what's a demo
 
 Being upfront about this matters more than looking finished.
@@ -20,6 +40,9 @@ Being upfront about this matters more than looking finished.
 | Backend (FastAPI, all endpoints below) | **Real**, tested |
 | Database schema, sync engine, conflict rules | **Real**, tested (25 automated tests) |
 | Offline queue (IndexedDB), service worker | **Real** — verified to survive a page reload while offline |
+| GIS map offline | **Real** — coastline/ice-shelf/feature data is cached in `localStorage` after the first successful load; going offline and reloading still renders the map, with a "showing cached map" banner |
+| Notification bell | **Real** — polls `/api/dashboard` every 20s, badge count and dropdown panel show live alerts |
+| Report downloads (CSV) | **Real** — downloads go through an authenticated `fetch` + blob, not a plain link (plain links can't carry the JWT header) |
 | Route-risk score, cold-chain forecast, SAR search grid | **Real computation**, server-side — but the *models* are simple, explainable prototypes, not validated against real incident data |
 | Coastline / ice-shelf map layers | **Real** — Natural Earth 1:50m data, clipped and served as GeoJSON |
 | Sea-ice concentration layer | **Synthetic** — a distance-from-coast approximation, clearly labelled as such in the API response. Swap in NSIDC/Copernicus data when available (see §7) |
@@ -28,6 +51,22 @@ Being upfront about this matters more than looking finished.
 | AI assistant | Retrieves real facts from the database and cites which tables it used; it does not call an external LLM. No safety decision is automated |
 | SAR workflow | Decision-support simulation — explicitly not certified SAR software |
 
+### End-to-end verified (via automated browser tests, not just manual clicking)
+
+- Logged in, walked all 12 screens, no console errors.
+- Went offline mid-session → queued a check-in → **reloaded the page while still offline**
+  → the queued event was still in IndexedDB (not lost) → came back online → synced
+  automatically → queue cleared.
+- Went offline on the **Live GIS Map** screen → reloaded → map still rendered from the
+  cached copy, with the offline banner shown.
+- Clicked the notification bell → panel opened showing the real, live cold-chain alert
+  from the database.
+- Clicked "Download audit log (.csv)" → file downloaded with the correct auth header,
+  content verified (header row + data rows present).
+- Toggled dark/light theme, resized to a 390px mobile viewport — no horizontal overflow.
+- Ran the "missed check-in" SAR scenario end to end: incident created, weather attached,
+  nearest assets found by real distance calculation, wind-shifted search grid generated.
+
 ---
 
 ## 2. Run it locally (fastest path)
@@ -35,7 +74,7 @@ Being upfront about this matters more than looking finished.
 Requires Python 3.11+.
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/<your-username>/polarlogix.git
 cd polarlogix
 ./scripts/run_dev.sh
 ```
